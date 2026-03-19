@@ -44,6 +44,8 @@ const WEDDING: WeddingData = {
   receptionMaps:
     "https://www.google.com/maps/search/?api=1&query=Valerio+Parrilladas,+Av+Manuel+Antonio+Matta+712",
   whatsappRSVP: "https://wa.me/56940683959",
+  whatsappMessage:
+    "Hola, confirmo mi asistencia a la boda de Pablo y Alejandra."
   giftText:
     "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un obsequio, pronto agregaremos los datos aquí.",
   countdownTarget: "2026-05-30T13:00:00-04:00",
@@ -63,9 +65,19 @@ export default function WeddingInvitation() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-100 via-white to-neutral-100 text-stone-800">
+    <div className="min-h-screen bg-gradient-to-b from-stone-100 via-white to-neutral-100 text-stone-800 animate-[fadeIn_0.9s_ease-out]">
       <HeroSection wedding={WEDDING} timeLeft={timeLeft} />
       <main className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+        <style jsx global>{`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes softFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+          }
+        `}</style>
         <VerseSection wedding={WEDDING} />
         <SummarySection wedding={WEDDING} />
         <EventSection />
@@ -87,7 +99,7 @@ function HeroSection({ wedding, timeLeft }: { wedding: WeddingData; timeLeft: Ti
             'linear-gradient(rgba(255,255,255,0.76), rgba(255,255,255,0.76)), url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80")',
         }}
       />
-      <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
+      <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28 animate-[fadeIn_1.1s_ease-out]">
         <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.45em] text-amber-700 sm:text-xs">
           Nuestra boda
         </p>
@@ -99,7 +111,7 @@ function HeroSection({ wedding, timeLeft }: { wedding: WeddingData; timeLeft: Ti
           celebración especial, preparada con amor, fe y esperanza.
         </p>
 
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 rounded-[2rem] bg-white/85 p-4 shadow-xl backdrop-blur sm:grid-cols-4">
+        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 rounded-[2rem] bg-white/85 p-4 shadow-xl backdrop-blur sm:grid-cols-4 animate-[softFloat_5s_ease-in-out_infinite]">
           <CountdownItem label="Días" value={timeLeft.days} />
           <CountdownItem label="Horas" value={timeLeft.hours} />
           <CountdownItem label="Minutos" value={timeLeft.minutes} />
@@ -327,14 +339,15 @@ function RSVPSection({ wedding }: { wedding: WeddingData }) {
           </h2>
           <p className="mt-4 text-base leading-8 text-stone-600 sm:text-lg sm:leading-9">
             Haz clic en el botón para confirmar tu asistencia directamente por
-            WhatsApp.
+            WhatsApp con un mensaje automático.
           </p>
           <a
-            href={wedding.whatsappRSVP}
+            href={`${wedding.whatsappRSVP}?text=${encodeURIComponent(wedding.whatsappMessage)}`}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex rounded-2xl bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:scale-[1.02]"
+            className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:scale-[1.03]"
           >
+            <span className="text-base">✦</span>
             Confirmar por WhatsApp
           </a>
         </div>
