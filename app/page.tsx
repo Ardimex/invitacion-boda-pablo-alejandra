@@ -1,0 +1,351 @@
+"use client";
+
+import React from "react";
+
+const WEDDING = {
+  verseReference: "Eclesiastés 4:12 · RV1960",
+  verseText:
+    "Y si alguno prevaleciere contra uno, dos le resistirán; y cordón de tres dobleces no se rompe pronto.",
+  couple: "Pablo y Alejandra",
+  date: "30 de mayo de 2026",
+  ceremonyTime: "13:00 hrs",
+  receptionTime: "14:30 hrs",
+  ceremonyVenue: "Iglesia Fuente de Agua de Vida Eterna",
+  ceremonyAddress: "Blanco Encalada 279, Quilicura",
+  receptionVenue: "Valerio Parrilladas",
+  receptionAddress: "Av Manuel Antonio Matta 712",
+  ceremonyMaps:
+    "https://www.google.com/maps/search/?api=1&query=Blanco+Encalada+279,+Quilicura",
+  receptionMaps:
+    "https://www.google.com/maps/search/?api=1&query=Valerio+Parrilladas,+Av+Manuel+Antonio+Matta+712",
+  whatsappRSVP: "https://wa.me/56940683959",
+  giftText:
+    "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un obsequio, pronto agregaremos los datos aquí.",
+  countdownTarget: "2026-05-30T13:00:00-04:00",
+};
+
+export default function WeddingInvitation() {
+  const [timeLeft, setTimeLeft] = React.useState(() =>
+    getTimeLeft(WEDDING.countdownTarget),
+  );
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(getTimeLeft(WEDDING.countdownTarget));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-stone-100 via-white to-neutral-100 text-stone-800">
+      <HeroSection wedding={WEDDING} timeLeft={timeLeft} />
+      <main className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+        <VerseSection wedding={WEDDING} />
+        <SummarySection wedding={WEDDING} />
+        <EventSection />
+        <LocationSection wedding={WEDDING} />
+        <InfoCards wedding={WEDDING} />
+        <RSVPSection wedding={WEDDING} />
+      </main>
+    </div>
+  );
+}
+
+function HeroSection({ wedding, timeLeft }) {
+  return (
+    <section className="relative overflow-hidden rounded-b-[2.5rem]">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.76), rgba(255,255,255,0.76)), url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80")',
+        }}
+      />
+      <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
+        <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.45em] text-amber-700 sm:text-xs">
+          Nuestra boda
+        </p>
+        <h1 className="mx-auto max-w-4xl text-5xl font-semibold leading-none tracking-[-0.04em] text-stone-900 sm:text-6xl lg:text-7xl">
+          {wedding.couple}
+        </h1>
+        <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-stone-600 sm:text-[1.35rem]">
+          Con alegría y gratitud queremos invitarte a acompañarnos en una
+          celebración especial, preparada con amor, fe y esperanza.
+        </p>
+
+        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 rounded-[2rem] bg-white/85 p-4 shadow-xl backdrop-blur sm:grid-cols-4">
+          <CountdownItem label="Días" value={timeLeft.days} />
+          <CountdownItem label="Horas" value={timeLeft.hours} />
+          <CountdownItem label="Minutos" value={timeLeft.minutes} />
+          <CountdownItem label="Segundos" value={timeLeft.seconds} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CountdownItem({ label, value }) {
+  return (
+    <div className="rounded-2xl border border-stone-200/80 bg-stone-50 p-4 shadow-sm">
+      <div className="text-3xl font-semibold tracking-[-0.03em] text-stone-900 sm:text-4xl">
+        {String(value).padStart(2, "0")}
+      </div>
+      <div className="mt-2 text-[11px] font-medium uppercase tracking-[0.28em] text-stone-500">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function VerseSection({ wedding }) {
+  return (
+    <section className="pt-12">
+      <div className="mx-auto max-w-4xl rounded-[2rem] border border-stone-200 bg-white px-8 py-10 text-center shadow-lg shadow-stone-200/40 sm:px-12">
+        <p className="text-[11px] font-medium uppercase tracking-[0.42em] text-amber-700 sm:text-xs">
+          Escritura bíblica
+        </p>
+        <p className="mt-5 text-2xl font-medium leading-[1.8] tracking-[-0.015em] text-stone-700 sm:text-[2rem]">
+          “{wedding.verseText}”
+        </p>
+        <p className="mt-6 text-[11px] uppercase tracking-[0.38em] text-stone-500 sm:text-xs">
+          {wedding.verseReference}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function SummarySection({ wedding }) {
+  const items = [
+    { title: "Fecha", value: wedding.date },
+    { title: "Ceremonia", value: wedding.ceremonyTime },
+    { title: "Recepción", value: wedding.receptionTime },
+  ];
+
+  return (
+    <section className="py-12">
+      <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.4em] text-amber-700 sm:text-xs">
+            Nuestro día
+          </p>
+          <h2 className="mb-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.03em] text-stone-900 sm:text-5xl">
+            Un momento especial para compartir contigo
+          </h2>
+          <p className="max-w-2xl text-base leading-8 text-stone-600 sm:text-lg sm:leading-9">
+            Hemos preparado esta invitación con un estilo sobrio y elegante para
+            que encuentres toda la información importante de forma clara y
+            armoniosa.
+          </p>
+        </div>
+
+        <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-lg shadow-stone-200/40">
+          <div className="grid gap-4 sm:grid-cols-3">
+            {items.map((item) => (
+              <div key={item.title} className="rounded-2xl bg-stone-50 p-4">
+                <div className="text-[11px] font-medium uppercase tracking-[0.24em] text-stone-500">
+                  {item.title}
+                </div>
+                <div className="mt-3 text-lg font-semibold tracking-[-0.02em] text-stone-900">
+                  {item.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EventSection() {
+  return (
+    <section className="py-12">
+      <div className="mb-8 text-center">
+        <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.4em] text-amber-700 sm:text-xs">
+          Detalles del evento
+        </p>
+        <h2 className="text-4xl font-semibold tracking-[-0.03em] text-stone-900 sm:text-5xl">
+          Agenda de la celebración
+        </h2>
+      </div>
+
+      <div className="mx-auto max-w-4xl rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
+        <div className="space-y-5">
+          <TimelineItem
+            title="Recepción de invitados"
+            time="12:30 hrs"
+            text="Recepción y bienvenida de los invitados."
+          />
+          <TimelineItem
+            title="Comienzo de la ceremonia"
+            time="13:00 hrs"
+            text="Inicio de la ceremonia principal."
+          />
+          <TimelineItem
+            title="Comida especial"
+            time="14:30 hrs"
+            text="Comida especial para compartir junto a los invitados."
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TimelineItem({ title, time, text }) {
+  const badge = time.split(":")[0];
+
+  return (
+    <div className="flex gap-4 rounded-2xl bg-stone-50 p-5">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-sm font-semibold tracking-[-0.02em] text-amber-800">
+        {badge}
+      </div>
+      <div>
+        <div className="text-lg font-semibold tracking-[-0.02em] text-stone-900">{title}</div>
+        <div className="mt-1 text-sm font-medium text-amber-700">{time}</div>
+        <p className="mt-2 text-[15px] leading-7 text-stone-600">{text}</p>
+      </div>
+    </div>
+  );
+}
+
+function LocationSection({ wedding }) {
+  return (
+    <section className="py-12">
+      <div className="mb-8 text-center">
+        <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.4em] text-amber-700 sm:text-xs">
+          Ubicación
+        </p>
+        <h2 className="text-4xl font-semibold tracking-[-0.03em] text-stone-900 sm:text-5xl">
+          Lugares del evento
+        </h2>
+      </div>
+
+      <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+        <LocationCard
+          label="Ceremonia"
+          title={wedding.ceremonyVenue}
+          address={wedding.ceremonyAddress}
+          href={wedding.ceremonyMaps}
+        />
+        <LocationCard
+          label="Recepción"
+          title={wedding.receptionVenue}
+          address={wedding.receptionAddress}
+          href={wedding.receptionMaps}
+        />
+      </div>
+    </section>
+  );
+}
+
+function LocationCard({ label, title, address, href }) {
+  return (
+    <div className="flex h-full flex-col rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
+      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-amber-700">
+        {label}
+      </p>
+      <h3 className="mt-5 text-2xl font-semibold leading-tight tracking-[-0.025em] text-stone-900 sm:text-3xl">
+        {title}
+      </h3>
+      <p className="mt-5 text-[15px] leading-8 text-stone-600">{address}</p>
+
+      <div className="mt-8 pt-2">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex rounded-2xl border border-amber-300 bg-amber-50 px-5 py-3 text-sm font-medium text-amber-900 transition hover:bg-amber-100"
+        >
+          Abrir en Google Maps
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function InfoCards({ wedding }) {
+  return (
+    <section className="py-12">
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
+          <h3 className="text-2xl font-semibold tracking-[-0.02em] text-stone-900">Regalos</h3>
+          <p className="mt-4 text-[15px] leading-8 text-stone-600">{wedding.giftText}</p>
+        </div>
+        <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
+          <h3 className="text-2xl font-semibold tracking-[-0.02em] text-stone-900">
+            Recomendaciones
+          </h3>
+          <ul className="mt-4 space-y-3 text-[15px] leading-8 text-stone-600">
+            <li>• Llega con al menos 20 minutos de anticipación.</li>
+            <li>• Guarda esta página para revisar los detalles cuando lo necesites.</li>
+            <li>• Confirma tu asistencia con anticipación.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function RSVPSection({ wedding }) {
+  return (
+    <section id="rsvp" className="py-12">
+      <div className="rounded-[2rem] bg-gradient-to-r from-stone-200 via-white to-neutral-100 p-8 shadow-xl sm:p-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.4em] text-amber-700 sm:text-xs">
+            RSVP
+          </p>
+          <h2 className="text-4xl font-semibold tracking-[-0.03em] text-stone-900 sm:text-5xl">
+            Esperamos contar contigo
+          </h2>
+          <p className="mt-4 text-base leading-8 text-stone-600 sm:text-lg sm:leading-9">
+            Haz clic en el botón para confirmar tu asistencia directamente por
+            WhatsApp.
+          </p>
+          <a
+            href={wedding.whatsappRSVP}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex rounded-2xl bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:scale-[1.02]"
+          >
+            Confirmar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function getTimeLeft(targetDate) {
+  const difference = new Date(targetDate).getTime() - Date.now();
+
+  if (difference <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((difference / (1000 * 60)) % 60),
+    seconds: Math.floor((difference / 1000) % 60),
+  };
+}
+
+function runTimeLeftChecks() {
+  const future = getTimeLeft("2999-01-01T00:00:00-04:00");
+  const past = getTimeLeft("2000-01-01T00:00:00-04:00");
+  const exact = getTimeLeft(WEDDING.countdownTarget);
+
+  console.assert(future.days >= 0, "future.days should be non-negative");
+  console.assert(past.days === 0, "past.days should be zero");
+  console.assert(past.hours === 0, "past.hours should be zero");
+  console.assert(past.minutes === 0, "past.minutes should be zero");
+  console.assert(past.seconds === 0, "past.seconds should be zero");
+  console.assert(typeof exact.days === "number", "exact.days should be a number");
+}
+
+if (typeof window !== "undefined") {
+  runTimeLeftChecks();
+}
