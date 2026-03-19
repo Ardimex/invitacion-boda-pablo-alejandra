@@ -2,7 +2,32 @@
 
 import React from "react";
 
-const WEDDING = {
+type TimeLeft = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+type WeddingData = {
+  verseReference: string;
+  verseText: string;
+  couple: string;
+  date: string;
+  ceremonyTime: string;
+  receptionTime: string;
+  ceremonyVenue: string;
+  ceremonyAddress: string;
+  receptionVenue: string;
+  receptionAddress: string;
+  ceremonyMaps: string;
+  receptionMaps: string;
+  whatsappRSVP: string;
+  giftText: string;
+  countdownTarget: string;
+};
+
+const WEDDING: WeddingData = {
   verseReference: "Eclesiastés 4:12 · RV1960",
   verseText:
     "Y si alguno prevaleciere contra uno, dos le resistirán; y cordón de tres dobleces no se rompe pronto.",
@@ -52,7 +77,7 @@ export default function WeddingInvitation() {
   );
 }
 
-function HeroSection({ wedding, timeLeft }) {
+function HeroSection({ wedding, timeLeft }: { wedding: WeddingData; timeLeft: TimeLeft }) {
   return (
     <section className="relative overflow-hidden rounded-b-[2.5rem]">
       <div
@@ -85,7 +110,7 @@ function HeroSection({ wedding, timeLeft }) {
   );
 }
 
-function CountdownItem({ label, value }) {
+function CountdownItem({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-2xl border border-stone-200/80 bg-stone-50 p-4 shadow-sm">
       <div className="text-3xl font-semibold tracking-[-0.03em] text-stone-900 sm:text-4xl">
@@ -98,7 +123,7 @@ function CountdownItem({ label, value }) {
   );
 }
 
-function VerseSection({ wedding }) {
+function VerseSection({ wedding }: { wedding: WeddingData }) {
   return (
     <section className="pt-12">
       <div className="mx-auto max-w-4xl rounded-[2rem] border border-stone-200 bg-white px-8 py-10 text-center shadow-lg shadow-stone-200/40 sm:px-12">
@@ -116,7 +141,7 @@ function VerseSection({ wedding }) {
   );
 }
 
-function SummarySection({ wedding }) {
+function SummarySection({ wedding }: { wedding: WeddingData }) {
   const items = [
     { title: "Fecha", value: wedding.date },
     { title: "Ceremonia", value: wedding.ceremonyTime },
@@ -194,7 +219,7 @@ function EventSection() {
   );
 }
 
-function TimelineItem({ title, time, text }) {
+function TimelineItem({ title, time, text }: { title: string; time: string; text: string }) {
   const badge = time.split(":")[0];
 
   return (
@@ -211,7 +236,7 @@ function TimelineItem({ title, time, text }) {
   );
 }
 
-function LocationSection({ wedding }) {
+function LocationSection({ wedding }: { wedding: WeddingData }) {
   return (
     <section className="py-12">
       <div className="mb-8 text-center">
@@ -241,7 +266,7 @@ function LocationSection({ wedding }) {
   );
 }
 
-function LocationCard({ label, title, address, href }) {
+function LocationCard({ label, title, address, href }: { label: string; title: string; address: string; href: string }) {
   return (
     <div className="flex h-full flex-col rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
       <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-amber-700">
@@ -266,7 +291,7 @@ function LocationCard({ label, title, address, href }) {
   );
 }
 
-function InfoCards({ wedding }) {
+function InfoCards({ wedding }: { wedding: WeddingData }) {
   return (
     <section className="py-12">
       <div className="grid gap-6 md:grid-cols-2">
@@ -289,7 +314,7 @@ function InfoCards({ wedding }) {
   );
 }
 
-function RSVPSection({ wedding }) {
+function RSVPSection({ wedding }: { wedding: WeddingData }) {
   return (
     <section id="rsvp" className="py-12">
       <div className="rounded-[2rem] bg-gradient-to-r from-stone-200 via-white to-neutral-100 p-8 shadow-xl sm:p-10">
@@ -318,7 +343,7 @@ function RSVPSection({ wedding }) {
   );
 }
 
-function getTimeLeft(targetDate) {
+function getTimeLeft(targetDate: string): TimeLeft {
   const difference = new Date(targetDate).getTime() - Date.now();
 
   if (difference <= 0) {
