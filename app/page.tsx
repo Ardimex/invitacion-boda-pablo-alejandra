@@ -345,6 +345,12 @@ function InfoCards({ wedding }: { wedding: typeof WEDDING }) {
       <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
         <h3 className="text-2xl font-semibold tracking-[-0.02em] text-stone-900">
           Regalos
+          <p className="mt-4 text-[15px] leading-7 text-stone-600">
+  <p className="mt-4 text-[15px] leading-7 text-stone-600">
+  Tu presencia en este día tan especial es nuestro mayor regalo.  
+  Pero si deseas acompañarnos también en el inicio de nuestra nueva vida, puedes hacerlo a continuación.
+</p>
+</p>
         </h3>
         <p className="mt-4 text-[15px] leading-8 text-stone-600">
           <div className="mt-6 space-y-3 text-sm text-stone-700">
