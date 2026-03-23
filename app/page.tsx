@@ -186,12 +186,10 @@ function SummarySection({ wedding }: { wedding: WeddingData }) {
             Nuestro día
           </p>
           <h2 className="mb-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.03em] text-stone-900 sm:text-5xl">
-            Un momento especial para compartir contigo
+            Tu presencia hará que este día sea aún más significativo e inolvidable para nosotros.
           </h2>
           <p className="max-w-2xl text-base leading-8 text-stone-600 sm:text-lg sm:leading-9">
-            Hemos preparado esta invitación con un estilo sobrio y elegante para
-            que encuentres toda la información importante de forma clara y
-            armoniosa.
+           
           </p>
         </div>
 
