@@ -340,13 +340,12 @@ function LocationCard({
 }
 
 function InfoCards() {
-  const datos = `
-Titular: Pablo Esteban Contreras Poblete
+  const datos = `Titular: Pablo Esteban Contreras Poblete
 RUT: 19.064.057-4
 Banco: Itaú
-Cuenta corriente: 0226600161
-Email: pblconpo@gmail.com
-`;
+Tipo de cuenta: Cuenta corriente
+Número: 0226600161
+Email: pblconpo@gmail.com`;
 
   const copiar = () => {
     navigator.clipboard.writeText(datos);
@@ -356,7 +355,6 @@ Email: pblconpo@gmail.com
   return (
     <section className="py-16">
       <div className="mx-auto max-w-4xl rounded-[2rem] border border-stone-200 bg-white p-10 shadow-lg shadow-stone-200/40">
-
         <div className="text-center">
           <p className="mb-3 text-[11px] uppercase tracking-[0.4em] text-amber-700">
             Regalos
@@ -374,13 +372,9 @@ Email: pblconpo@gmail.com
         </div>
 
         <div className="mx-auto mt-10 max-w-2xl rounded-[1.5rem] bg-gradient-to-b from-stone-50 to-white p-7 shadow-sm ring-1 ring-stone-200">
-
-          <div className="mb-5 text-center text-amber-700 text-xl">
-            ✦
-          </div>
+          <div className="mb-5 text-center text-xl text-amber-700">✦</div>
 
           <div className="grid gap-3 text-[15px] sm:grid-cols-[180px_1fr]">
-
             <div className="font-medium text-stone-900">Titular</div>
             <div className="text-stone-600">
               Pablo Esteban Contreras Poblete
@@ -396,31 +390,26 @@ Email: pblconpo@gmail.com
             <div className="text-stone-600">Cuenta corriente</div>
 
             <div className="font-medium text-stone-900">Número</div>
-            <div className="text-stone-600 tracking-wide">
-              0226600161
-            </div>
+            <div className="text-stone-600 tracking-wide">0226600161</div>
 
             <div className="font-medium text-stone-900">Email</div>
-            <div className="text-stone-600 break-all">
-              pblconpo@gmail.com
-            </div>
-
+            <div className="break-all text-stone-600">pblconpo@gmail.com</div>
           </div>
 
           <div className="mt-8 text-center">
             <button
               onClick={copiar}
-              className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-amber-50 px-5 py-2 text-sm font-medium text-amber-900 transition hover:bg-amber-100 hover:scale-[1.03]"
+              className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-amber-50 px-5 py-2 text-sm font-medium text-amber-900 transition hover:scale-[1.03] hover:bg-amber-100"
             >
               ✦ Copiar datos
             </button>
           </div>
-
         </div>
       </div>
     </section>
   );
 }
+
 
 function RSVPSection({ wedding }: { wedding: WeddingData }) {
   return (
