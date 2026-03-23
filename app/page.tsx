@@ -54,7 +54,7 @@ const WEDDING: WeddingData = {
   whatsappMessage:
     "Hola, confirmo mi asistencia a la boda de Pablo y Alejandra.",
   giftText:
-    "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un obsequio, pronto agregaremos los datos aquí.",
+    "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un obsequio, puedes enviarlo aca .",
   countdownTarget: "2026-05-30T13:00:00-04:00",
 };
 
@@ -347,7 +347,26 @@ function InfoCards({ wedding }: { wedding: typeof WEDDING }) {
           Regalos
         </h3>
         <p className="mt-4 text-[15px] leading-8 text-stone-600">
-          {wedding.giftText}
+          <div className="mt-6 space-y-3 text-sm text-stone-700">
+  <div>
+    <span className="font-medium text-stone-900">Titular:</span> Pablo Esteban Contreras Poblete
+  </div>
+  <div>
+    <span className="font-medium text-stone-900">RUT:</span> 19.064.057-4
+  </div>
+  <div>
+    <span className="font-medium text-stone-900">Banco:</span> Itaú
+  </div>
+  <div>
+    <span className="font-medium text-stone-900">Tipo de cuenta:</span> Cuenta corriente
+  </div>
+  <div>
+    <span className="font-medium text-stone-900">Número:</span> 0226600161
+  </div>
+  <div>
+    <span className="font-medium text-stone-900">Email:</span> pblconpo@gmail.com
+  </div>
+</div>
         </p>
       </div>
     </section>
