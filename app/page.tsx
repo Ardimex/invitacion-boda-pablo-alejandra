@@ -339,34 +339,6 @@ function LocationCard({
   );
 }
 
-function InfoCards({ wedding }: { wedding: WeddingData }) {
-  return (
-    <section className="py-12">
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
-          <h3 className="text-2xl font-semibold tracking-[-0.02em] text-stone-900">
-            Regalos
-          </h3>
-          <p className="mt-4 text-[15px] leading-8 text-stone-600">
-            {wedding.giftText}
-          </p>
-        </div>
-        <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
-          <h3 className="text-2xl font-semibold tracking-[-0.02em] text-stone-900">
-            Recomendaciones
-          </h3>
-          <ul className="mt-4 space-y-3 text-[15px] leading-8 text-stone-600">
-            <li>• Llega con al menos 20 minutos de anticipación.</li>
-            <li>
-              • Guarda esta página para revisar los detalles cuando lo necesites.
-            </li>
-            <li>• Confirma tu asistencia con anticipación.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function RSVPSection({ wedding }: { wedding: WeddingData }) {
   return (
