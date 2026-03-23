@@ -339,41 +339,84 @@ function LocationCard({
   );
 }
 
-function InfoCards({ wedding }: { wedding: typeof WEDDING }) {
+function InfoCards() {
+  const datos = `
+Titular: Pablo Esteban Contreras Poblete
+RUT: 19.064.057-4
+Banco: Itaú
+Cuenta corriente: 0226600161
+Email: pblconpo@gmail.com
+`;
+
+  const copiar = () => {
+    navigator.clipboard.writeText(datos);
+    alert("Datos copiados ✔");
+  };
+
   return (
-    <section className="py-12">
-      <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
-        <h3 className="text-2xl font-semibold tracking-[-0.02em] text-stone-900">
-          Regalos
-          <p className="mt-4 text-[15px] leading-7 text-stone-600">
-  <p className="mt-4 text-[15px] leading-7 text-stone-600">
-  Tu presencia en este día tan especial es nuestro mayor regalo.  
-  Pero si deseas acompañarnos también en el inicio de nuestra nueva vida, puedes hacerlo a continuación.
-</p>
-</p>
-        </h3>
-        <p className="mt-4 text-[15px] leading-8 text-stone-600">
-          <div className="mt-6 space-y-3 text-sm text-stone-700">
-  <div>
-    <span className="font-medium text-stone-900">Titular:</span> Pablo Esteban Contreras Poblete
-  </div>
-  <div>
-    <span className="font-medium text-stone-900">RUT:</span> 19.064.057-4
-  </div>
-  <div>
-    <span className="font-medium text-stone-900">Banco:</span> Itaú
-  </div>
-  <div>
-    <span className="font-medium text-stone-900">Tipo de cuenta:</span> Cuenta corriente
-  </div>
-  <div>
-    <span className="font-medium text-stone-900">Número:</span> 0226600161
-  </div>
-  <div>
-    <span className="font-medium text-stone-900">Email:</span> pblconpo@gmail.com
-  </div>
-</div>
-        </p>
+    <section className="py-16">
+      <div className="mx-auto max-w-4xl rounded-[2rem] border border-stone-200 bg-white p-10 shadow-lg shadow-stone-200/40">
+
+        <div className="text-center">
+          <p className="mb-3 text-[11px] uppercase tracking-[0.4em] text-amber-700">
+            Regalos
+          </p>
+
+          <h3 className="text-4xl font-semibold tracking-[-0.02em] text-stone-900">
+            Un gesto para nuestra nueva vida
+          </h3>
+
+          <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-stone-600">
+            Tu presencia en este día tan especial es nuestro mayor regalo.
+            Pero si deseas acompañarnos también en el inicio de nuestra nueva vida,
+            puedes hacerlo a través de los siguientes datos.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-2xl rounded-[1.5rem] bg-gradient-to-b from-stone-50 to-white p-7 shadow-sm ring-1 ring-stone-200">
+
+          <div className="mb-5 text-center text-amber-700 text-xl">
+            ✦
+          </div>
+
+          <div className="grid gap-3 text-[15px] sm:grid-cols-[180px_1fr]">
+
+            <div className="font-medium text-stone-900">Titular</div>
+            <div className="text-stone-600">
+              Pablo Esteban Contreras Poblete
+            </div>
+
+            <div className="font-medium text-stone-900">RUT</div>
+            <div className="text-stone-600">19.064.057-4</div>
+
+            <div className="font-medium text-stone-900">Banco</div>
+            <div className="text-stone-600">Itaú</div>
+
+            <div className="font-medium text-stone-900">Tipo de cuenta</div>
+            <div className="text-stone-600">Cuenta corriente</div>
+
+            <div className="font-medium text-stone-900">Número</div>
+            <div className="text-stone-600 tracking-wide">
+              0226600161
+            </div>
+
+            <div className="font-medium text-stone-900">Email</div>
+            <div className="text-stone-600 break-all">
+              pblconpo@gmail.com
+            </div>
+
+          </div>
+
+          <div className="mt-8 text-center">
+            <button
+              onClick={copiar}
+              className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-amber-50 px-5 py-2 text-sm font-medium text-amber-900 transition hover:bg-amber-100 hover:scale-[1.03]"
+            >
+              ✦ Copiar datos
+            </button>
+          </div>
+
+        </div>
       </div>
     </section>
   );
