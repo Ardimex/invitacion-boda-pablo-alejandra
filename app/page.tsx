@@ -158,7 +158,7 @@ function VerseSection({ wedding }: { wedding: WeddingData }) {
     <section className="pt-12">
       <div className="mx-auto max-w-4xl rounded-[2rem] border border-stone-200 bg-white px-8 py-10 text-center shadow-lg shadow-stone-200/40 sm:px-12">
         <p className="text-[11px] font-medium uppercase tracking-[0.42em] text-amber-700 sm:text-xs">
-          Escritura bíblica
+        
         </p>
         <p className="mt-5 text-2xl font-medium leading-[1.8] tracking-[-0.015em] text-stone-700 sm:text-[2rem]">
           “{wedding.verseText}”
