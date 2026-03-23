@@ -339,6 +339,20 @@ function LocationCard({
   );
 }
 
+function InfoCards({ wedding }: { wedding: typeof WEDDING }) {
+  return (
+    <section className="py-12">
+      <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-lg shadow-stone-200/40">
+        <h3 className="text-2xl font-semibold tracking-[-0.02em] text-stone-900">
+          Regalos
+        </h3>
+        <p className="mt-4 text-[15px] leading-8 text-stone-600">
+          {wedding.giftText}
+        </p>
+      </div>
+    </section>
+  );
+}
 
 function RSVPSection({ wedding }: { wedding: WeddingData }) {
   return (
