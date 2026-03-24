@@ -107,7 +107,7 @@ function HeroSection({
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.74), rgba(255,255,255,0.74)), url("https://img.freepik.com/fotos-premium/hermosas-composiciones-florales-restaurante-ceremonia-boda_73989-22672.jpg")',
+            'linear-gradient(rgba(255,255,255,0.74), rgba(255,255,255,0.74)), url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80")',
         }}
       />
 
