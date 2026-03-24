@@ -2,10 +2,17 @@
 
 import React from "react";
 import { Great_Vibes } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
+
 
 const greatVibes = Great_Vibes({
   weight: "400",
   subsets: ["latin"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 type TimeLeft = {
@@ -160,9 +167,9 @@ function VerseSection({ wedding }: { wedding: WeddingData }) {
         <p className="text-[11px] font-medium uppercase tracking-[0.42em] text-amber-700 sm:text-xs">
         
         </p>
-        <p className="mt-5 text-2xl font-medium leading-[1.8] tracking-[-0.015em] text-stone-700 sm:text-[2rem]">
-          “{wedding.verseText}”
-        </p>
+        <p className={`${cormorant.className} italic text-[20px] text-stone-700 leading-relaxed max-w-2xl mx-auto`}>
+  {wedding.verseText}
+</p>
         <p className="mt-6 text-[11px] uppercase tracking-[0.38em] text-stone-500 sm:text-xs">
           {wedding.verseReference}
         </p>
