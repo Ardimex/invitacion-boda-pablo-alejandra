@@ -47,7 +47,7 @@ const WEDDING: WeddingData = {
     "Y si alguno prevaleciere contra uno, dos le resistirán; y cordón de tres dobleces no se rompe pronto.",
   couple: "Pablo y Alejandra",
   date: "30 de mayo de 2026",
-  ceremonyTime: "13:00 hrs",
+  ceremonyTime: "13:30 hrs",
   receptionTime: "14:30 hrs",
   ceremonyVenue: "Iglesia Fuente de Agua de Vida Eterna",
   ceremonyAddress: "Blanco Encalada 279, Quilicura",
