@@ -12,7 +12,7 @@ const greatVibes = Great_Vibes({
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["600", "800"],
 });
 
 type TimeLeft = {
