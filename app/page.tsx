@@ -52,7 +52,7 @@ const WEDDING: WeddingData = {
   ceremonyVenue: "Iglesia Fuente de Agua de Vida Eterna",
   ceremonyAddress: "Blanco Encalada 279, Quilicura",
   receptionVenue: "Valerio Parrilladas",
-  receptionAddress: "Av Manuel Antonio Matta 712",
+  receptionAddress: "Av Manuel Antonio Matta 712, Quilicura",
   ceremonyMaps:
     "https://www.google.com/maps/search/?api=1&query=Blanco+Encalada+279,+Quilicura",
   receptionMaps:
@@ -107,7 +107,7 @@ function HeroSection({
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.74), rgba(255,255,255,0.74)), url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80")',
+            'linear-gradient(rgba(255,255,255,0.74), rgba(255,255,255,0.74)), url("https://img.freepik.com/fotos-premium/hermosas-composiciones-florales-restaurante-ceremonia-boda_73989-22672.jpg")',
         }}
       />
 
@@ -127,7 +127,7 @@ function HeroSection({
         </h1>
 
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-stone-600 sm:text-[1.2rem]">
-          Con alegría y gratitud en nuestros corazones queremos invitarte a ser parte de uno de los momentos más importantes de nuestra vida.
+          Con alegría y gratitud en nuestros corazones queremos invitarte a ser parte de uno de los momentos más importante de nuestra vida.
         </p>
 
         <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 rounded-[2rem] bg-white/85 p-4 shadow-xl backdrop-blur sm:grid-cols-4">
@@ -438,8 +438,7 @@ function RSVPSection({ wedding }: { wedding: WeddingData }) {
             Esperamos contar contigo
           </h2>
           <p className="mt-4 text-base leading-8 text-stone-600 sm:text-lg sm:leading-9">
-            Haz clic en el botón para confirmar tu asistencia directamente por
-            WhatsApp con un mensaje automático.
+            Haz clic en el botón para confirmar tu asistencia.
           </p>
           <a
             href={`${wedding.whatsappRSVP}?text=${encodeURIComponent(
