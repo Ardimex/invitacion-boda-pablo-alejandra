@@ -107,7 +107,7 @@ function HeroSection({
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.74), rgba(255,255,255,0.74)), url("https://static.vecteezy.com/system/resources/thumbnails/050/345/034/small/wedding-rings-and-pink-roses-photo.jpeg")',
+            'linear-gradient(rgba(255,255,255,0.74), rgba(255,255,255,0.74)), url("https://plus.unsplash.com/premium_photo-1674581928773-0b239c66c385?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
         }}
       />
 
