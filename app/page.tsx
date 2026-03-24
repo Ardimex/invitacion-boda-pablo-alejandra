@@ -80,8 +80,8 @@ export default function WeddingInvitation() {
         <SummarySection wedding={WEDDING} />
         <EventSection />
         <LocationSection wedding={WEDDING} />
-        <InfoCards wedding={WEDDING} />
-        <RSVPSection wedding={WEDDING} />
+<InfoCards />
+<RSVPSection wedding={WEDDING} />
       </main>
     </div>
   );
