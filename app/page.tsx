@@ -127,7 +127,7 @@ function HeroSection({
         </h1>
 
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-stone-600 sm:text-[1.2rem]">
-          Con alegría y gratitud en nuestros corazones queremos invitarte a ser parte de los momentos más importantes de nuestra vida.
+          Con alegría y gratitud en nuestros corazones queremos invitarte a ser parte de uno de los momentos más importantes de nuestra vida.
         </p>
 
         <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 rounded-[2rem] bg-white/85 p-4 shadow-xl backdrop-blur sm:grid-cols-4">
@@ -193,7 +193,7 @@ function SummarySection({ wedding }: { wedding: WeddingData }) {
             Nuestro día
           </p>
           <h2 className="mb-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.03em] text-stone-900 sm:text-5xl">
-            Tu presencia hará que este día sea aún más significativo e inolvidable para nosotros.
+            Tu presencia hará que este día sea inolvidable para nosotros.
           </h2>
           <p className="max-w-2xl text-base leading-8 text-stone-600 sm:text-lg sm:leading-9">
            
@@ -235,12 +235,12 @@ function EventSection() {
         <div className="space-y-5">
           <TimelineItem
             title="Recepción de invitados"
-            time="12:30 hrs"
+            time="13:00 hrs"
             text="Recepción y bienvenida de los invitados."
           />
           <TimelineItem
             title="Comienzo de la ceremonia"
-            time="13:00 hrs"
+            time="13:30 hrs"
             text="Inicio de la ceremonia principal."
           />
           <TimelineItem
@@ -267,9 +267,19 @@ function TimelineItem({
 
   return (
     <div className="flex gap-4 rounded-2xl bg-stone-50 p-5">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-sm font-semibold tracking-[-0.02em] text-amber-800">
-        {badge}
-      </div>
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-50 text-amber-700 shadow-sm">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    className="h-6 w-6"
+  >
+    <path d="M12 21c-1.2-2.2-2.8-3.7-4.9-5.1-2.3-1.6-3.6-3.4-3.6-5.8 0-2.3 1.8-4.1 4.1-4.1 1.5 0 2.7.7 3.4 1.8.7-1.1 1.9-1.8 3.4-1.8 2.3 0 4.1 1.8 4.1 4.1 0 2.4-1.3 4.2-3.6 5.8-2.1 1.4-3.7 2.9-4.9 5.1Z"/>
+    <path d="M12 9.2c-.5-1-1.4-1.7-2.6-1.7-1.4 0-2.4 1-2.4 2.4 0 1.3.8 2.4 2.3 3.5 1 .7 1.9 1.4 2.7 2.2.8-.8 1.7-1.5 2.7-2.2 1.5-1.1 2.3-2.2 2.3-3.5 0-1.4-1-2.4-2.4-2.4-1.2 0-2.1.7-2.6 1.7Z"/>
+  </svg>
+</div>
       <div>
         <div className="text-lg font-semibold tracking-[-0.02em] text-stone-900">
           {title}
@@ -364,7 +374,7 @@ Email: pblconpo@gmail.com`;
       <div className="mx-auto max-w-4xl rounded-[2rem] border border-stone-200 bg-white p-10 shadow-lg shadow-stone-200/40">
         <div className="text-center">
           <p className="mb-3 text-[11px] uppercase tracking-[0.4em] text-amber-700">
-            Regalos
+            Regalo
           </p>
 
           <h3 className="text-4xl font-semibold tracking-[-0.02em] text-stone-900">
@@ -372,9 +382,7 @@ Email: pblconpo@gmail.com`;
           </h3>
 
           <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-stone-600">
-            Tu presencia en este día tan especial es nuestro mayor regalo.
-            Pero si deseas acompañarnos también en el inicio de nuestra nueva vida,
-            puedes hacerlo a través de los siguientes datos.
+            Tu compañía en este momento tan especial es también un regalo. Pero si deseas acompañarnos en nuestro nuevo comienzo, puedes hacerlo mediante los siguientes datos
           </p>
         </div>
 
