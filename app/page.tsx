@@ -127,7 +127,7 @@ function HeroSection({
         </h1>
 
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-stone-600 sm:text-[1.2rem]">
-          Con alegría y gratitud en nuestros corazones queremos invitarte a ser parte de uno de los momentos más importante de nuestra vida.
+          Con alegría y gratitud en nuestros corazones queremos invitarte a ser parte de uno de los momentos más importante de nuestras vidas.
         </p>
 
         <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 rounded-[2rem] bg-white/85 p-4 shadow-xl backdrop-blur sm:grid-cols-4">
